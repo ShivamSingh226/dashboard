@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setMode } from '../state'
 //import profileImage from "../assets"
 import { AppBar,IconButton,InputBase,Toolbar,useTheme } from '@mui/material'
-const Navbar = () => {
+const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
     const dispatch=useDispatch();
     const theme=useTheme();
 
@@ -19,7 +19,7 @@ const Navbar = () => {
         <Toolbar sx={{justifyContent:"space-between"}}>
             {/* Left side*/}
             <FlexBetween>
-                <IconButton onClick={console.log("Open/close sidebar")}>
+                <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
                     <MenuIcon/>
                 </IconButton>
                 <FlexBetween
