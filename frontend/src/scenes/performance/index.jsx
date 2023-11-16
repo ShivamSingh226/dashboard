@@ -17,51 +17,41 @@ const Performance = () => {
             flex: 1,
           },
           {
-            field: "name",
-            headerName: "Name",
-            flex: 0.5,
-          },
-          {
-            field: "email",
-            headerName: "Email",
+            field: "userId",
+            headerName: "User ID",
             flex: 1,
           },
           {
-            field: "phoneNumber",
-            headerName: "Phone Number",
-            flex: 0.5,
-            renderCell: (params) => {
-              return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
-            },
-          },
-          {
-            field: "country",
-            headerName: "Country",
-            flex: 0.4,
-          },
-          {
-            field: "occupation",
-            headerName: "Occupation",
+            field: "createdAt",
+            headerName: "CreatedAt",
             flex: 1,
           },
           {
-            field: "role",
-            headerName: "Role",
+            field: "products",
+            headerName: "# of products",
             flex: 0.5,
+            sortable:false,
+            renderCell:(params)=>params.value.length,
           },
-
+          {
+            field: "cost",
+            headerName: "Cost",
+            flex: 1,
+            renderCell:(params)=>`$${Number(params.value).toFixed(2)}`,
+          },
+         
     ]
   return (
     <Box m="1.5rem 2.5rem">
-    <Header title="ADMINS" subTitle="Managing Admins and list of all admins"/>
-    {/* <Box mt="40px" height="75vh"
+    <Header title="PERFORMANCE" subTitle="Track your affiliate sales performance here"/>
+    <Box mt="40px" height="75vh"
     sx={{
         "& .MuiDataGrid-root":{
             border:"none"
         },
         "& .MuiDataGrid-cell":{
             borderBottom:"none"
-        },SS
+        },
         "& .MuiDataGrid-columnHeaders":{
             backgroundColor:theme.palette.background.alt,
             color:theme.palette.secondary[100],
@@ -84,12 +74,12 @@ const Performance = () => {
         <DataGrid 
         loading={isLoading || !data}
         getRowId={(row)=>row._id}
-        rows={data||[]}
+        rows={(data && data.sales)||[]}
         columns={columns}
         slots={{
             ColumnMenu:CustomColumnMenu,
         }}/>
-    </Box> */}
+    </Box>
    </Box>
   )
 }
