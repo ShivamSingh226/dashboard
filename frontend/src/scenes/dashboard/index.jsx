@@ -59,7 +59,7 @@ const Dashboard = () => {
       <FlexBetween>
         <Header title="DASHBOARD" subTitle="Welcome to your dashboard"/>
         <Box>
-          <Button sx={{
+          {/* <Button sx={{
             backgroundColor:theme.palette.secondary.light,
             color:theme.palette.background.alt,
             fontSize:"14px",
@@ -67,7 +67,7 @@ const Dashboard = () => {
             padding:"10px 20px"
 
           }}><DownloadOutlined sx={{mr:"10px"}}/>
-            Download reports</Button>
+            Download reports</Button> */}
         </Box>
       </FlexBetween>
       <Box
